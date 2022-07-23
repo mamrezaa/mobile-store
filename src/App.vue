@@ -64,11 +64,43 @@
   </div>
 
 
+<!-- modal login -->
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">فرم لاگین</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="#">
+
+          <div><input type="email" placeholder="نام کاربری" v-model="form.userName"></div>
+
+          <div class="my-3"><input type="password" placeholder="رمز عبور" v-model="form.password"></div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" @click="$store.dispatch('fetchUsers',form)">ورود</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="container">
       <div class="row" >
 
         <div class="col-12 col-lg-2 py-3">
+
+          <button class="btn btn-success" style="width:7rem" data-toggle="modal" data-target="#exampleModalLong">ورود</button>
+
           <button id="sabad-kharid" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="width:70%; height:93%">
             سبد خرید
            </button>
@@ -239,8 +271,18 @@ import {mapGetters} from 'vuex'
 
 export default {
 
+  data(){
+    return{
+      form:{
+        userName:'',
+        password:''
+      }
+    }
+  },
+
   computed:{
-    ...mapGetters(['cards','buy_total_']) 
+    ...mapGetters(['cards','buy_total_','users','userName','password']) ,
+    //...mapGetters([])
   },
   name: 'App',
   //components:{

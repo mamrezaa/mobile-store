@@ -1,9 +1,11 @@
 
+
 const state = {
     buy_total:0,
     buy_total_:0,
     cards:[],
-    cards_:[]    
+    cards_:[] ,
+       
  
 }
 
@@ -14,6 +16,7 @@ const getters = {
     cards: (state) => state.cards,
     cards_: (state) => state.cards_,
     condition: (state) => state.condition,
+    
 }
 
 const mutations = {
@@ -79,6 +82,9 @@ const mutations = {
             //state.cards.count.push(state.cards.count)
 
         }
+
+        
+        
         
 
     },
@@ -152,6 +158,7 @@ const actions = {
      //   commit('increament',product_x)
        // console.log(this.increament)
     //}
+    
     
 }
 
